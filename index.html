@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora</title>
+    <meta
+      name="description"
+      content="Aplicación Web de calculadora por Naim Babanaceur García de Lara. Hecha con TS"
+    />
+    <link
+      rel="shortcut icon"
+      href="public/media/img/favicon/logo.png"
+      type="image/x-icon"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" href="src/css/main.css" />
+    <link rel="stylesheet" href="src/css/normalize.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="https://www.github.com/NbglRoot/" target="_blank"
+          ><img
+            class="animate__animated animate__slideInLeft"
+            width="38px"
+            height="38px"
+            src="public/media/img/favicon/logo.png"
+            alt="icono del creador de la pagina"
+        /></a>
+
+        <p class="animate__animated animate__slideInRight">
+          Current Time of User
+        </p>
+      </nav>
+    </header>
+    <main>
+      <section class="calculator animate__animated animate__slideInUp">
+        <div class="calc__screen">
+          <p id="calc__res"></p>
+        </div>
+        <div class="row">
+          <input type="button" value="%" />
+          <input type="button" value="CE" />
+          <input type="button" value="C" />
+          <input type="button" value="&#8617;" />
+        </div>
+        <div class="row">
+          <input type="button" value="7" />
+          <input type="button" value="8" />
+          <input type="button" value="9" />
+          <input type="button" value="&#215;" />
+        </div>
+        <div class="row">
+          <input type="button" value="4" />
+          <input type="button" value="5" />
+          <input type="button" value="6" />
+          <input type="button" value="&#8722;" />
+        </div>
+        <div class="row">
+          <input type="button" value="1" />
+          <input type="button" value="2" />
+          <input type="button" value="3" />
+          <input type="button" value="&#43;" />
+        </div>
+        <div class="row">
+          <input type="button" value="00" />
+          <input type="button" value="0" />
+          <input type="button" value="." />
+          <input type="button" value="&#61;" />
+        </div>
+      </section>
+    </main>
+    <footer>Naim Babanaceur García de Lara &copy; MIT License</footer>
+
+    <!-- scripts -->
+    <script src="src/js/main.js"></script>
+  </body>
+</html>

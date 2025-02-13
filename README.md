@@ -1,7 +1,7 @@
-es-ES: Aplicacion Web Sencilla de Calculadora usando tecnologias mostradas abajos y las buenas practicas propuestas por los consorcios W3C, ECMA y SEO.
+es-ES: Aplicacion Web Sencilla de Calculadora y calculadora de edad usando tecnologias mostradas abajos y las buenas practicas propuestas por los consorcios W3C, ECMA y SEO.
 <br>
 <br>
-en-EN: Web Aplication of a Calculator using the tecnologies mention below and the good practices proposed by W3C, ECMA and SEO.
+en-EN: Web Aplication of a Calculator and age calculator using the tecnologies mention below and the good practices proposed by W3C, ECMA and SEO.
 <br>
 <br>
 <br>

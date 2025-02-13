@@ -41,55 +41,38 @@ nav {
 main {
   display: grid !important;
   place-content: center;
-  height: 80vh;
-  font-size: 1.3rem;
+  height: 60vh;
+  text-align: center;
+  gap: 3rem;
 }
-.calculator {
-  background-color: var(--bg-calc);
-  padding: 2rem;
-  border-radius: 16px;
+main h2 {
+  font-size: 2rem;
 }
-.calc__screen {
-  background-color: var(--calc-screen);
-  width: 100%;
-  height: 48px;
-  border: 1px solid var(--screen-border);
-  border-radius: 8px;
-  margin: 1rem 0;
+.calc__section {
   display: flex;
   align-items: center;
+  gap: 1rem;
+  width: max-content;
+  margin: 0 auto;
+}
+.calc__section > input {
+  padding: 8px 24px;
+  border-radius: 16px;
+  border: 1px solid var(--screen-border);
 }
 #calc__res {
-  text-align: right;
-  border: none;
+  border: 1px solid var(--screen-border);
   outline: none;
   cursor: text;
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  padding-right: 1rem;
-}
-.row {
-  user-select: none;
-}
-.row > input {
-  width: 48px;
-  aspect-ratio: 1 / 1;
-  margin: 0.3rem;
-  border-radius: 8px;
-  box-shadow: 2px 2px 5px 0 var(--input-shadow);
-}
-#inputShowResult {
-  width: 48px;
-  aspect-ratio: 1 / 1;
-  margin: 0.3rem;
-  border-radius: 8px;
-  box-shadow: 2px 2px 5px 0 var(--input-shadow);
+  padding: 8px 24px;
+  border-radius: 16px;
+  width: 90%;
+  margin: 0 auto;
 }
 main > a {
   position: absolute;
   width: max-content;
-  margin-bottom: 6rem;
+  margin-bottom: 12rem;
   bottom: 0;
   place-self: center;
   text-decoration: none;
@@ -124,18 +107,5 @@ footer {
 }
 
 /* desktop improve responsive */
-@media only screen and (min-width: 80.063em) and (min-height: 814px) {
-  .calc__screen {
-    width: 100%;
-    height: 68px;
-    margin: 1rem 0;
-  }
-  .row > input,
-  #inputShowResult {
-    width: 68px;
-    aspect-ratio: 1 / 1;
-    margin: 0.5rem;
-  }
-  main > a {
-  }
-}
+/* @media only screen and (min-width: 80.063em) and (min-height: 814px) {
+} */

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora de Edad</title>
+    <meta
+      name="description"
+      content="Aplicación Web de calculadora de edad, por Naim Babanaceur García de Lara. Hecha con TS"
+    />
+    <link
+      rel="shortcut icon"
+      href="../media/img/favicon/logo.png"
+      type="image/x-icon"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" href="src/css/main.css" />
+    <link rel="stylesheet" href="src/css/normalize.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="https://www.github.com/NbglRoot/" target="_blank"
+          ><img
+            class="animate__animated animate__slideInLeft"
+            width="38px"
+            height="38px"
+            src="../media/img/favicon/logo.png"
+            alt="icono del creador de la pagina"
+        /></a>
+
+        <p id="userDate" class="animate__animated animate__slideInRight"></p>
+      </nav>
+    </header>
+    <main>
+      <h2>Introduce tu Año de Nacimiento</h2>
+      <div class="calc__section">
+        <input id="inputDate" type="date" />
+        <input id="sentRequest" type="button" value="Calcular Edad" />
+      </div>
+      <input readonly id="calc__res" type="text" />
+      <a
+        class="animate__animated animate__backInLeft animate__slow"
+        href="../../index.html"
+        >Click for Calculator</a
+      >
+    </main>
+    <footer>Naim Babanaceur García de Lara &copy; MIT License</footer>
+
+    <!-- scripts -->
+    <script src="src/js/main.js"></script>
+  </body>
+</html>

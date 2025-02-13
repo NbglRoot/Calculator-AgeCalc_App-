@@ -1,60 +1,75 @@
 // set current user date
 const currentDate: Date = new Date();
+let currentM;
+if (currentDate.getMinutes() < 10) {
+  currentM = "0" + currentDate.getMinutes();
+} else {
+  currentM = currentDate.getMinutes();
+}
 document.querySelector("#userDate")!.textContent = `${currentDate.getDate()}/${
   currentDate.getMonth() + 1
-}/${currentDate.getFullYear()} ${currentDate.getHours()}:${currentDate.getMinutes()}`;
+}/${currentDate.getFullYear()} | ${currentDate.getHours()}:${currentM}`;
 
-// calc inputs events
-const calcScreen = document.querySelector("#calc__res") as HTMLParagraphElement;
-const inputsCalc = document.querySelectorAll(
-  "input"
+// calc inputs and options + screen display
+const calcScreen = document.querySelector("#calc__res") as HTMLInputElement;
+const calcInputs = document.querySelectorAll(
+  ".row > input"
 ) as NodeListOf<HTMLInputElement>;
-inputsCalc.forEach((btn: HTMLInputElement) => {
-  btn.addEventListener("click", (e) => {
+const clearOptions = document.querySelectorAll(
+  ".clear__opt"
+) as NodeListOf<HTMLInputElement>;
+const inputShowResult = document.querySelector(
+  "#inputShowResult"
+) as HTMLInputElement;
+
+calcInputs.forEach((input: HTMLInputElement) => {
+  input.addEventListener("click", (e) => {
     const target = e.target as HTMLInputElement;
-    if (
-      calcScreen.innerText === "0" ||
-      calcScreen.innerText === "Not Implemented"
-    ) {
-      calcScreen.innerText = "";
-      calcScreen.innerText = target.value;
-    } else {
-      calcScreen.innerText += target.value;
-    }
+    toScreen(target.value);
   });
 });
-
-// calc options
-const options__calc = document.querySelectorAll(
-  ".option__calc"
-) as NodeListOf<HTMLInputElement>;
-options__calc.forEach((btn: HTMLInputElement) => {
-  btn.addEventListener("click", (e) => {
+clearOptions.forEach((clear: HTMLInputElement) => {
+  clear.addEventListener("click", (e) => {
     const target = e.target as HTMLInputElement;
-    switch (target.value as string) {
-      case "%":
-        calcScreen.innerText = "0";
-        break;
-      case "CE":
-        calcScreen.innerText = "";
-        break;
-      case "C":
-        calcScreen.innerText = "";
-        break;
-      case "↩":
-        calcScreen.innerText = calcScreen.innerText.slice(0, -2);
-        break;
-      case "×":
-      case "−":
-      case "+":
-      case "=":
-        calcScreen.innerText = "Not Implemented";
-        // mathOp();
-        break;
-
-      default:
-        alert("Error of Aplication | 305 | Seek Medical Attention");
-        break;
-    }
+    clearCalc(target.value);
   });
 });
+inputShowResult.addEventListener("click", (e) => {
+  showCalcDisplay();
+});
+
+function toScreen(input: string) {
+  if (calcScreen.value === "0" || calcScreen.value === "Error") {
+    calcScreen.value = input;
+  } else {
+    calcScreen.value += input;
+  }
+}
+
+function clearCalc(input: string) {
+  switch (input) {
+    case "%":
+      calcScreen.value = "0";
+      break;
+    case "CE":
+      calcScreen.value = "";
+      break;
+    case "↩":
+      calcScreen.value = calcScreen.value.slice(0, -2);
+      break;
+
+    default:
+      break;
+  }
+}
+
+function showCalcDisplay() {
+  try {
+    if (calcScreen.value != "") {
+      console.log(eval(calcScreen.value));
+      calcScreen.value = eval(calcScreen.value);
+    }
+  } catch (error) {
+    calcScreen.value = "Error";
+  }
+}

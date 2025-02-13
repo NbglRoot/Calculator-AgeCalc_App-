@@ -40,37 +40,37 @@
     <main>
       <section class="calculator animate__animated animate__slideInUp">
         <div class="calc__screen">
-          <p id="calc__res"></p>
+          <input readonly type="text" id="calc__res"></input>
         </div>
         <div class="row">
-          <input class="option__calc" type="button" value="%" />
-          <input class="option__calc" type="button" value="CE" />
-          <input class="option__calc" type="button" value="C" />
-          <input class="option__calc" type="button" value="↩" />
+          <input class="clear__opt" type="button" value="%" />
+          <input class="clear__opt" type="button" value="/" />
+          <input class="clear__opt" type="button" value="CE" />
+          <input class="clear__opt" type="button" value="↩" />
         </div>
         <div class="row">
           <input type="button" value="7" />
           <input type="button" value="8" />
           <input type="button" value="9" />
-          <input class="option__calc" type="button" value="×" />
+          <input type="button" value="*" />
         </div>
         <div class="row">
           <input type="button" value="4" />
           <input type="button" value="5" />
           <input type="button" value="6" />
-          <input class="option__calc" type="button" value="−" />
+          <input type="button" value="-" />
         </div>
         <div class="row">
           <input type="button" value="1" />
           <input type="button" value="2" />
           <input type="button" value="3" />
-          <input class="option__calc" type="button" value="+" />
+          <input type="button" value="+" />
         </div>
         <div class="row">
           <input type="button" value="00" />
           <input type="button" value="0" />
           <input type="button" value="." />
-          <input class="option__calc" type="button" value="=" />
+          <button id="inputShowResult"> = </button>
         </div>
       </section>
     </main>

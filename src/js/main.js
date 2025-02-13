@@ -1,50 +1,64 @@
 // set current user date
 var currentDate = new Date();
-document.querySelector("#userDate").textContent = "".concat(currentDate.getDate(), "/").concat(currentDate.getMonth() + 1, "/").concat(currentDate.getFullYear(), " ").concat(currentDate.getHours(), ":").concat(currentDate.getMinutes());
-// calc inputs events
+var currentM;
+if (currentDate.getMinutes() < 10) {
+    currentM = "0" + currentDate.getMinutes();
+}
+else {
+    currentM = currentDate.getMinutes();
+}
+document.querySelector("#userDate").textContent = "".concat(currentDate.getDate(), "/").concat(currentDate.getMonth() + 1, "/").concat(currentDate.getFullYear(), " | ").concat(currentDate.getHours(), ":").concat(currentM);
+// calc inputs and options + screen display
 var calcScreen = document.querySelector("#calc__res");
-var inputsCalc = document.querySelectorAll("input");
-inputsCalc.forEach(function (btn) {
-    btn.addEventListener("click", function (e) {
+var calcInputs = document.querySelectorAll(".row > input");
+var clearOptions = document.querySelectorAll(".clear__opt");
+var inputShowResult = document.querySelector("#inputShowResult");
+calcInputs.forEach(function (input) {
+    input.addEventListener("click", function (e) {
         var target = e.target;
-        if (calcScreen.innerText === "0" ||
-            calcScreen.innerText === "Not Implemented") {
-            calcScreen.innerText = "";
-            calcScreen.innerText = target.value;
-        }
-        else {
-            calcScreen.innerText += target.value;
-        }
+        toScreen(target.value);
     });
 });
-// calc options
-var options__calc = document.querySelectorAll(".option__calc");
-options__calc.forEach(function (btn) {
-    btn.addEventListener("click", function (e) {
+clearOptions.forEach(function (clear) {
+    clear.addEventListener("click", function (e) {
         var target = e.target;
-        switch (target.value) {
-            case "%":
-                calcScreen.innerText = "0";
-                break;
-            case "CE":
-                calcScreen.innerText = "";
-                break;
-            case "C":
-                calcScreen.innerText = "";
-                break;
-            case "↩":
-                calcScreen.innerText = calcScreen.innerText.slice(0, -2);
-                break;
-            case "×":
-            case "−":
-            case "+":
-            case "=":
-                calcScreen.innerText = "Not Implemented";
-                // mathOp();
-                break;
-            default:
-                alert("Error of Aplication | 305 | Seek Medical Attention");
-                break;
-        }
+        clearCalc(target.value);
     });
 });
+inputShowResult.addEventListener("click", function (e) {
+    showCalcDisplay();
+});
+function toScreen(input) {
+    if (calcScreen.value === "0" || calcScreen.value === "Error") {
+        calcScreen.value = input;
+    }
+    else {
+        calcScreen.value += input;
+    }
+}
+function clearCalc(input) {
+    switch (input) {
+        case "%":
+            calcScreen.value = "0";
+            break;
+        case "CE":
+            calcScreen.value = "";
+            break;
+        case "↩":
+            calcScreen.value = calcScreen.value.slice(0, -2);
+            break;
+        default:
+            break;
+    }
+}
+function showCalcDisplay() {
+    try {
+        if (calcScreen.value != "") {
+            console.log(eval(calcScreen.value));
+            calcScreen.value = eval(calcScreen.value);
+        }
+    }
+    catch (error) {
+        calcScreen.value = "Error";
+    }
+}
